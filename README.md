@@ -3,8 +3,10 @@ A collection of scripts and notebooks dedicated to studying the Fourier Transfor
 
 ---
 ### 19/03/2026
-Implement some Fourier Series for examples like $f(x)=Sign(x)$, $f(x)=x$, $f(x)=x^2$.
+* Implementation of Fourier series for examples such as $f(x) = \text{sign}(x)$, $f(x) = x$, and $f(x) = x^2$.
 
-Analysis of the decay of Fourier Coefficients
+* Analyze the decay of Fourier coefficients.
 
-Analysis of the absolute error between a function $f(x)$ and $SF(x)$
+* Analyze the absolute error between a function $f(x)$ and its Fourier series approximation, $SF(x)$.
+
+---
