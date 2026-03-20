@@ -118,14 +118,21 @@ Arraste para ver o Decaimento dos Coeficientes de Fourier: $(@bind N_decaimento 
 
 # ╔═╡ 574a9a19-7469-4f77-830e-4240db979a97
 begin
-    plt_decaimento = plot(title = L"Decaimento dos Coeficientes: $c_n = \sqrt{a_n^2 + b_n^2}$",xlabel = L"Harmônica ($n$)",ylabel = L"Amplitude ($c_n$)")
+    plt_decaimento = plot(
+        title = L"Decaimento dos Coeficientes: $c_n = \sqrt{a_n^2 + b_n^2}$",
+        xlabel = L"Harmônica ($n$)",
+        ylabel = L"Amplitude ($c_n$)"
+    )
     
-    stem_plot_fourier_coefficients(a1, b1, N_decaimento, L"$SF(x) \approx Sign(x)$", 	:blue;plt=plt_decaimento,markersize=5,SF_label=L"$f(x)=Sign(x)$")
+    stem_plot_fourier_coefficients(a1, b1, N_decaimento, L"$SF(x) \approx Sign(x)$", :blue; 
+        plt=plt_decaimento, markersize=5, SF_label=L"$f(x)=\text{Sign}(x)$", offset=-0.15)
 
-	stem_plot_fourier_coefficients(a2, b2, N_decaimento, L"$SF(x) \approx x$", :green;plt=plt_decaimento,markersize=3,SF_label=L"$f(x)=x$")
+    stem_plot_fourier_coefficients(a2, b2, N_decaimento, L"$SF(x) \approx x$", :green; 
+        plt=plt_decaimento, markersize=5, SF_label=L"$f(x)=x$", offset=0.0)
 
-	stem_plot_fourier_coefficients(a3, b3, N_decaimento, L"$SF(x) \approx x^2$", :purple;plt=plt_decaimento,markersize=4,SF_label=L"$f(x)=x^2$")
-    
+    stem_plot_fourier_coefficients(a3, b3, N_decaimento, L"$SF(x) \approx x^2$", :purple; 
+        plt=plt_decaimento, markersize=5, SF_label=L"$f(x)=x^2$", offset=0.15)
+
     plt_decaimento
 end
 

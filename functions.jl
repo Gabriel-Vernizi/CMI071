@@ -77,16 +77,20 @@ end
 
 # ---------------- #
 
-function stem_plot_fourier_coefficients(a_n,b_n,N,SF_text_approx,color;plt=nothing,markersize=5,SF_label="temp")
+function stem_plot_fourier_coefficients(a_n, b_n, N, SF_text_approx, color; plt=nothing, markersize=5, SF_label="temp", offset=0.0)
+    
     if isnothing(plt)
-        plt = plot(title=L"Decaimento dos Coeficientes de Fourier para $SF(x) \approx %$(SF_text_approx) $")
+        plt = plot(title=L"Decaimento dos Coeficientes de Fourier para $SF(x) \approx %$(SF_text_approx)$")
     end
 
     c_n(k) = sqrt(a_n(k)^2 + b_n(k)^2)
     I = 1:N
+    
+    I_plot = I .+ offset
 
-    plot!(plt, I, c_n.(I), st=:sticks, label=SF_label, lw=2,color=color)
-    scatter!(plt,I,c_n.(I),label="",color=color,ms=markersize)
+    plot!(plt, I_plot, c_n.(I), st=:sticks, label="", lw=2, color=color)
+    
+    scatter!(plt, I_plot, c_n.(I), label=SF_label, color=color, ms=markersize, msc=:white, msw=1)
 
     return plt
 end
